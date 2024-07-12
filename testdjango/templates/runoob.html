@@ -1,0 +1,22 @@
+<!-- <h1>{{ hello }}</h1> -->
+<p>{{ views_list.1 }}</p> <!-- # 取出列表的第一个元素(0,1,2,3...) -->
+<p>{{ views_list }}</p>  <!--# 取出整个列表 -->
+<p>{{ views_list|length }}</p>  <!--length #返回对象的长度，适用于字符串和列表-->
+<p>{{ views_list|filesizeformat }}</p><!--["test1", "tset2", "test3"]，这个列表中包含的都是字符串，并不是文件大小或数值-->
+<p>{{ File_size|filesizeformat }}</p><!--filesizeformat 以更易读的方式显示文件的大小（即'13 KB', '4.1 MB', '102 bytes'等）.字典返回的是键值对的数量，集合返回的是去重后的长度。-->
+<p>{{ time|date:"Y-m-d" }}</p><!--当前时间-->
+<p>{%if num > 90 and num <= 100 %}
+    优秀
+    {% elif num > 60 and num <= 90 %}
+    合格
+    {% else %}
+    一边玩去～
+    {% endif %}</p>
+<p>{% for i in views_list_for %}
+    {{ i }}
+    {% endfor %}</p>
+<p>{% for i,j in views_dict.items %}
+    {{ i }}---{{ j }}
+    {% endfor %}</p>
+<p>{{boke|safe}}</p>
+<p>{{boke|safe}}</p>
