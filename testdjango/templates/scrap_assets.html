@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>报废资产列表</title>
+</head>
+<body>
+    <h1>报废资产列表</h1>
+    <table border="1">
+        <tr>
+            <th>资产名称</th>
+            <th>使用人</th>
+            <th>存放地点</th>
+            <th>使用年限</th>
+            <th>预计使用到期日</th>
+            <th>数量</th>
+            <th>资产原值（元）</th>
+            <th>入账日期</th>
+        </tr>
+        {% for asset in scrap_assets %}
+        <tr>
+            <td>{{ asset.asset_name }}</td>
+            <td>{{ asset.user }}</td>
+            <td>{{ asset.location }}</td>
+            <td>{{ asset.lifespan }}</td>
+            <td>{{ asset.expiration_date }}</td>
+            <td>{{ asset.quantity }}</td>
+            <td>{{ asset.original_value }}</td>
+            <td>{{ asset.entry_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> -->
