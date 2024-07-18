@@ -3,11 +3,27 @@ from TestModel import models
 
 def testmodel_book(request):
     books = models.Book.objects.all() 
-    book_titles = ", ".join([book.title for book in books])
-    print(book_titles)
-    return HttpResponse(f"<p>查找成功！</p>书名列表：{book_titles}</p>")
+    #books = models.Book.objects.filter(price__in=[200,300]) #filter() 方法基于双下划线的模糊查询（exclude 同理）。注意：filter 中运算符号只能使用等于号 = ，不能使用大于号 > ，小于号 < ，等等其他符号。__in 用于读取区间，= 号后面为列表 。
+    ##__gt 大于号 ，= 号后面为数字。 __gte 大于等于，= 号后面为数字。__lt 小于，=号后面为数字。__lte 小于等于，= 号后面为数字。__range 在 ... 之间，左闭右闭区间，= 号后面为两个元素的列表 __contains 包含，= 号后面为字符串__icontains 不区分大小写的包含，= 号后面为字符串
+    book_titles = "\n<br>".join([book.title for book in books])
+    print(book_titles.replace("<br>", "\n"))
+    return HttpResponse(f"<p>查找成功！</p>书名列表：<br>{book_titles}</p>")  #
 
-\
+def runoob(request):
+    views_list = ["test1","tset2","test3"]
+    File_size = 2048
+    import datetime
+    now_time=datetime.datetime.now()
+    views_str = "<a href='https://github.com/simonljw'>跳转至github</a>"
+    views_str1 = "<a href='https://2140707164simon.blogspot.com'>跳转至个人博客</a>"
+    views_num = 88
+    views_list_for= ["菜鸟教程","菜鸟教程1","菜鸟教程2","菜鸟教程3",]
+    views_dict = {"name":"liujinwu","age":21}
+    return render(request, "runoob.html", {"views_list": views_list,"File_size":File_size,
+                                           "time":now_time,"github":views_str,"boke":views_str1,"num":views_num
+                                           ,"views_list_for":views_list_for,"views_dict":views_dict})
+    
+    # def testmodel_book(request):
     # print(books)
     # print(books,type(books)) # QuerySet类型，类似于list，访问 url 时数据显示在命令行窗口中。
     # for book in books:
@@ -41,18 +57,7 @@ def testmodel_book(request):
 #     print(books, type(books)) # Book object (18) 
 #     return HttpResponse("<p>数据添加成功！</p>")
 
-def runoob(request):
-    views_list = ["test1","tset2","test3"]
-    File_size = 2048
-    import datetime
-    now_time=datetime.datetime.now()
-    views_str = "<a href='https://2140707164simon.blogspot.com'>跳转至个人博客</a>"
-    views_num = 88
-    views_list_for= ["菜鸟教程","菜鸟教程1","菜鸟教程2","菜鸟教程3",]
-    views_dict = {"name":"liujinwu","age":21}
-    return render(request, "runoob.html", {"views_list": views_list,"File_size":File_size,
-                                           "time":now_time,"boke":views_str,"num":views_num
-                                           ,"views_list_for":views_list_for,"views_dict":views_dict})
+
 
 
 

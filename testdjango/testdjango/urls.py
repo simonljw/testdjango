@@ -26,7 +26,7 @@ from django.contrib import admin
 # ]
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.runoob),
+    path('ceshi/', views.runoob),
     path('testdb/', testdb.testdb),
     path('search-form/', search.search_form),
     path('search/', search.search),
