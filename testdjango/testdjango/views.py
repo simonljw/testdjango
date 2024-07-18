@@ -1,11 +1,47 @@
+from django.shortcuts import render,HttpResponse
+from TestModel import models 
+
+def testmodel_book(request):
+    books = models.Book.objects.all() 
+    book_titles = ", ".join([book.title for book in books])
+    print(book_titles)
+    return HttpResponse(f"<p>查找成功！</p>书名列表：{book_titles}</p>")
+
+\
+    # print(books)
+    # print(books,type(books)) # QuerySet类型，类似于list，访问 url 时数据显示在命令行窗口中。
+    # for book in books:
+    #     print(book.title)
+
+    # books = models.Book.objects.exclude(pk=5)
+    # print(books)
+    # print("//////////////////////////////////////")
+    # books = models.Book.objects.exclude(publish='菜鸟出版社', price=300)
+    # print(books, type(books))  # QuerySet类型，类似于list。
+    # return HttpResponse("<p>查找成功！</p>")
+
+    # books = models.Book.objects.filter(pk=5)
+    # print(books)
+    # print("//////////////////////////////////////")
+    # books = models.Book.objects.filter(publish='菜鸟出版社', price=300)
+    # print(books, type(books))  # QuerySet类型，类似于list。
+    # print(books,)
+    # for book in books:
+    #     print(book.title)
+    # return HttpResponse("<p>查找成功！</p>")
 
 
-from django.shortcuts import render
+# def testmodel_book(request):
+#     book = models.Book(title="菜鸟教程",price=300,publish="菜鸟出版社",pub_date="2008-8-8") 
+#     book.save()
+#     return HttpResponse("<p>数据添加成功！</p>")
 
+# def testmodel_book(request):
+#     books = models.Book.objects.create(title="如来神掌",price=200,publish="功夫出版社",pub_date="2010-10-10") 
+#     print(books, type(books)) # Book object (18) 
+#     return HttpResponse("<p>数据添加成功！</p>")
 
 def runoob(request):
-    # views_list = ["test1","tset2","test3"]
-    # return render(request, "runoob.html", {"views_list": views_list})
     views_list = ["test1","tset2","test3"]
     File_size = 2048
     import datetime
@@ -18,7 +54,9 @@ def runoob(request):
                                            "time":now_time,"boke":views_str,"num":views_num
                                            ,"views_list_for":views_list_for,"views_dict":views_dict})
 
-    # return  render(request,"runoob.html", {"name":name})
+
+
+
 
 # def runoob(request):
 #     context          = {}
@@ -29,6 +67,16 @@ def runoob(request):
 # def runoob(request):
 #   views_name = "test ok!"
 #   return  render(request,"runoob.html", {"name":views_name})
+
+
+
+
+
+
+
+
+
+
 
 
 

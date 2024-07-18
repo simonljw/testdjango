@@ -1,8 +1,15 @@
-# # models.py
 from django.db import models
- 
+class Book(models.Model): 
+    id = models.AutoField(primary_key=True) # id 会自动创建,可以手动写入
+    title = models.CharField(max_length=32) # 书籍名称
+    price = models.DecimalField(max_digits=5, decimal_places=2) # 书籍价格 
+    publish = models.CharField(max_length=32) # 出版社名称 
+    pub_date = models.DateField() # 出版时间
+
+
 class Test(models.Model):
     name = models.CharField(max_length=20)
+
 
 class Contact(models.Model):
     name   = models.CharField(max_length=200)
@@ -16,23 +23,7 @@ class Tag(models.Model):
     name    = models.CharField(max_length=50)
     def __unicode__(self):
         return self.name
-# TestModel/models.py
 
-# from django.db import models
 
-# class ScrapAsset(models.Model):
-#     asset_name = models.CharField(max_length=100, verbose_name='资产名称')
-#     user = models.CharField(max_length=50, verbose_name='使用人')
-#     location = models.CharField(max_length=100, verbose_name='存放地点')
-#     lifespan = models.IntegerField(verbose_name='使用年限')
-#     expiration_date = models.DateField(verbose_name='预计使用到期日')
-#     quantity = models.IntegerField(verbose_name='数量')
-#     original_value = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='资产原值（元）')
-#     entry_date = models.DateField(verbose_name='入账日期')
 
-#     def __str__(self):
-#         return self.asset_name
 
-#     class Meta:
-#         verbose_name = '报废资产'
-#         verbose_name_plural = '报废资产'
