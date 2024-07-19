@@ -1,6 +1,14 @@
 from django.shortcuts import render,HttpResponse
 from TestModel import models 
 
+# def testmodel_book(request):
+#     #  获取出版社对象
+#     pub_obj = models.Publish.objects.filter(pk=1).first()
+#     #  给书籍的出版社属性publish传出版社对象
+#     book = models.Book.objects.create(title="菜鸟教程", price=200, pub_date="2010-10-10", publish=pub_obj)
+#     print(book, type(book))
+#     return HttpResponse(book)
+
 def testmodel_book(request):
     books = models.Book.objects.all() 
     #books = models.Book.objects.filter(price__in=[200,300]) #filter() 方法基于双下划线的模糊查询（exclude 同理）。注意：filter 中运算符号只能使用等于号 = ，不能使用大于号 > ，小于号 < ，等等其他符号。__in 用于读取区间，= 号后面为列表 。
