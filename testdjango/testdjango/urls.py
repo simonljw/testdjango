@@ -18,6 +18,7 @@ Including another URLconf
 from django.urls import path
 from . import views, testdb, search,serach2
 from django.contrib import admin
+from TestModel import views1
 
 # from TestModel import views
 # from TestModel.views import views
@@ -32,6 +33,7 @@ urlpatterns = [
     path('search/', search.search),
     path('search-post',serach2.search_post),
     path('testmodel_book/', views.testmodel_book),
+    path('testmodel_emp/', views1.testmodel_emp)
 ]
 
 # from django.contrib import admin
