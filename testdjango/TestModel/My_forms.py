@@ -20,6 +20,13 @@ class EmpForm(forms.Form):
         else:
             return val
 
+    def clean_salary(self):  # 检查工资是否为负数
+        val = self.cleaned_data.get("salary")
+
+        if val < 0:
+            raise ValidationError("工资不能为负数\n\t")
+        return val
+
     def clean(self):  # 全局钩子 确认两次输入的工资是否一致。
         val = self.cleaned_data.get("salary")
         r_val = self.cleaned_data.get("r_salary")
@@ -29,3 +36,4 @@ class EmpForm(forms.Form):
             return self.cleaned_data
         else:
             raise ValidationError("请确认工资是否一致。")
+

@@ -19,12 +19,9 @@ from django.urls import path
 from . import views, testdb, search,serach2
 from django.contrib import admin
 from TestModel import views1
+from django.urls import include
+from django.contrib.auth import views as auth_views
 
-# from TestModel import views
-# from TestModel.views import views
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-# ]
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ceshi/', views.runoob),
@@ -32,14 +29,8 @@ urlpatterns = [
     path('search-form/', search.search_form),
     path('search/', search.search),
     path('search-post',serach2.search_post),
-    path('testmodel_book/', views.testmodel_book),
-    path('testmodel_emp/', views1.testmodel_emp)
+    path('testmodel_book/', views1.testmodel_book),
+    path('testmodel_emp/', views1.testmodel_emp),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
-# from django.contrib import admin
-# from django.urls import path
-# from . import views
- 
-# urlpatterns = [
-#     path('testmodel_book/', views.testmodel_book),
-# ]
