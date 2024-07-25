@@ -16,7 +16,14 @@ def runoob(request):
     return render(request, "runoob.html", {"views_list": views_list,"File_size":File_size,
                                            "time":now_time,"github":views_str,"boke":views_str1,"num":views_num
                                            ,"views_list_for":views_list_for,"views_dict":views_dict})
-    
+# testdjango/views.py
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+@login_required  # 确保用户已登录才能访问
+def home(request):
+    return render(request, 'home.html')  # 渲染主页模板
+   
     # testdjango/views.py
 
 

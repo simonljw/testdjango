@@ -58,7 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [],   # 修改位置
-        'DIRS': [BASE_DIR, 'templates'],       # 修改位置
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,4 +132,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/'
+# settings.py
+LOGIN_REDIRECT_URL = '/'  # 登录成功后重定向到主页
+LOGOUT_REDIRECT_URL = '/'  # 登出后重定向到主页

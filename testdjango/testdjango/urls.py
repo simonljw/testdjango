@@ -31,6 +31,7 @@ urlpatterns = [
     path('search-post',serach2.search_post),
     path('testmodel_book/', views1.testmodel_book),
     path('testmodel_emp/', views1.testmodel_emp),
+    path('', views.home, name='home'), 
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
