@@ -1,24 +1,66 @@
+from django.shortcuts import render,HttpResponse
+from TestModel import models 
 
-
-from django.shortcuts import render
 
 
 def runoob(request):
-    # views_list = ["test1","tset2","test3"]
-    # return render(request, "runoob.html", {"views_list": views_list})
     views_list = ["test1","tset2","test3"]
     File_size = 2048
     import datetime
     now_time=datetime.datetime.now()
-    views_str = "<a href='https://2140707164simon.blogspot.com'>跳转至个人博客</a>"
+    views_str = "<a href='https://github.com/simonljw'>跳转至github</a>"
+    views_str1 = "<a href='https://2140707164simon.blogspot.com'>跳转至个人博客</a>"
     views_num = 88
     views_list_for= ["菜鸟教程","菜鸟教程1","菜鸟教程2","菜鸟教程3",]
     views_dict = {"name":"liujinwu","age":21}
     return render(request, "runoob.html", {"views_list": views_list,"File_size":File_size,
-                                           "time":now_time,"boke":views_str,"num":views_num
+                                           "time":now_time,"github":views_str,"boke":views_str1,"num":views_num
                                            ,"views_list_for":views_list_for,"views_dict":views_dict})
+# testdjango/views.py
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
-    # return  render(request,"runoob.html", {"name":name})
+@login_required  # 确保用户已登录才能访问
+def home(request):
+    return render(request, 'home.html')  # 渲染主页模板
+   
+    # testdjango/views.py
+
+
+
+    # books = models.Book.objects.exclude(pk=5)
+    # print(books)
+    # print("//////////////////////////////////////")
+    # books = models.Book.objects.exclude(publish='菜鸟出版社', price=300)
+    # print(books, type(books))  # QuerySet类型，类似于list。
+    # return HttpResponse("<p>查找成功！</p>")
+
+    # books = models.Book.objects.filter(pk=5)
+    # print(books)
+    # print("//////////////////////////////////////")
+    # books = models.Book.objects.filter(publish='菜鸟出版社', price=300)
+    # print(books, type(books))  # QuerySet类型，类似于list。
+    # print(books,)
+    # for book in books:
+    #     print(book.title)
+    # return HttpResponse("<p>查找成功！</p>")
+
+
+# def testmodel_book(request):
+#     book = models.Book(title="菜鸟教程",price=300,publish="菜鸟出版社",pub_date="2008-8-8") 
+#     book.save()
+#     return HttpResponse("<p>数据添加成功！</p>")
+
+# def testmodel_book(request):
+#     books = models.Book.objects.create(title="如来神掌",price=200,publish="功夫出版社",pub_date="2010-10-10") 
+#     print(books, type(books)) # Book object (18) 
+#     return HttpResponse("<p>数据添加成功！</p>")
+
+
+
+
+
+
 
 # def runoob(request):
 #     context          = {}
@@ -29,6 +71,16 @@ def runoob(request):
 # def runoob(request):
 #   views_name = "test ok!"
 #   return  render(request,"runoob.html", {"name":views_name})
+
+
+
+
+
+
+
+
+
+
 
 
 

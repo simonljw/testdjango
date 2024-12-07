@@ -17,11 +17,21 @@ Including another URLconf
 
 from django.urls import path
 from . import views, testdb, search,serach2
+from django.contrib import admin
+from TestModel import views1
+from django.urls import include
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('hello/', views.runoob),
+    path('admin/', admin.site.urls),
+    path('ceshi/', views.runoob),
     path('testdb/', testdb.testdb),
     path('search-form/', search.search_form),
     path('search/', search.search),
     path('search-post',serach2.search_post),
+    path('testmodel_book/', views1.testmodel_book),
+    path('testmodel_emp/', views1.testmodel_emp),
+    path('', views.home, name='home'), 
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
+
